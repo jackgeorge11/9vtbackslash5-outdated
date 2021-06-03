@@ -1,0 +1,99 @@
+<%- include('../../partials/header.ejs', {content: 'our first publication, Triple Entendre, by Jack George.'}) %>
+
+	<div class="main mx-3 py-2">
+		<div class="row bigrowman">
+			<div class="col-4">
+				<div id="R1" class="row babyrowman justify-content-center align-items-center">
+					<span id="link1"><a href="/">home</a></span><p class="backslashes mb-0 mt-1">\\</p><span id="link2"><a href="/submissions">submissions</a></span>
+				</div>
+				<div id="R2" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R3" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-none d-xl-block col-4">
+				<div id="R4" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R5" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R6" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class="justify-content-center pb-4" src="../../images/triple-entendre-cover-front.jpg">
+			</div>
+			<%- include('../../partials/puzzle-right.ejs') %>
+		</div>
+		<div data-aos="fade" data-aos-duration="2000" class="row bigrowman">
+			<div class="col-2 col-md-3 col-xl-4 image-container">
+					<img class="d-none d-xl-block pl-5 pr-3" src="../../images/triple-entendre-cover-front.jpg">
+				<div class="d-none d-md-block col p-1">
+					<h3 class="pr-md-5"><a class="italic h3-link" href="/triple-entendre">Triple Entendre</a></h3>
+					<h3 class="subtext pr-md-5 m-0">by Jack George, artwork by Isabella Greenwood</h3>
+				</div>
+			</div>
+			<div class="border-yo col-8 col-md-6 col-xl-4 scrollable">
+				<% if(generated) {%>
+					<div class="logo-container">
+						<h3 class="text-left"> <%= randomExcerpt %> </h3>
+					</div>
+					<div class="logo-container">
+						<form action="/triple-entendre" method="POST" class="text-right mb-2">
+							<input type="submit" value="regenerate">.
+						</form>
+					</div>
+					<div>
+						<h3 class="text-left">click <a href="/triple-entendre" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else { %>
+					<div class="logo-container">
+						<h3 class="text-left">put unbecomingly, this story is about a person searching for a blue piece of sea glass, a person speaking reminiscently to an for the most part unidentified interlocutor, and a person who, well, doesn't give much away.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">put technically, the story is a meditation on time told over the tail end of thirty days on an uncanny island, thirty minutes of anecdotal retrospection, and thirty seconds of sheer denial.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-left">purchase this manuscript <a href="/triple-entendre/buy" class="h3-link">here</a>.</h3>
+					</div>
+					<div class="logo-container">
+						<form action="/triple-entendre" method="POST" class="text-left mb-2">
+							<h3 class="text-right">or for a sneak peak, randomly<input type="submit" value="generate">1001 characters of text from selected excerpts of this story.</h3>
+						</form>
+					</div>
+					<div>
+						<h3 class="text-left mb-2">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } %>
+			</div>
+			<div class="col-2 col-md-3 col-xl-4 image-container">
+				<div class="d-none d-md-block col px-1">
+					<h3 class="subtext text-right m-0 pl-5">fiction</h3>
+					<h3 class="subtext text-right m-0 pl-5">softcover</h3>
+					<h3 class="subtext text-right m-0 pl-5">101 pages</h3>
+					<h3 class="subtext text-right m-0 pl-5">ISBN: 978-1-63848-545-2</h3>
+					<h3 class="subtext text-right m-0 pl-5">$12</h3>
+				</div>
+				<img class="d-none d-xl-block pl-3 pr-5" src="../../images/triple-entendre-cover-back.jpg">
+			</div>
+		</div>
+		<div class="row bigrowman">
+			<%- include('../../partials/puzzle-left.ejs') %>
+			<div class="d-none d-xl-block col-4">
+				<div id="R19" class="row babyrowman justify-content-end align-items-center"></div>
+				<div id="R20" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R21" class="row babyrowman justify-content-start align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class="justify-content-center pt-4" src="../../images/triple-entendre-cover-back.jpg">
+			</div>
+			<div class="col-4">
+				<div id="R22" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R23" class="row babyrowman justify-content-end align-items-center"></div>
+				<div id="R24" class="row babyrowman justify-content-center align-items-center">
+					<span id="link3"><a href="/inquiries">inquiries</a></span>
+					<p class="backslashes mb-0 mt-1">\\</p>
+					<span id="link4"><a href="/about-us">about us</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%- include('../../partials/footer.ejs') %>

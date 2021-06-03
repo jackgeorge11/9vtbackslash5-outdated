@@ -1,0 +1,549 @@
+<%- include('../../partials/header.ejs', {content: "buy a piece from Juliette Cottu's Moods collection."}) %>
+
+	<div class="main mx-3 py-2">
+		<div class="row bigrowman">
+			<div class="col-4">
+				<div id="R1" class="row babyrowman justify-content-center align-items-center">
+					<span id="link1"><a href="/">home</a></span><p class="backslashes mb-0 mt-1">\\</p><span id="link2"><a href="/submissions">submissions</a></span>
+				</div>
+				<div id="R2" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R3" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-none d-xl-block col-4">
+				<div id="R4" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R5" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R6" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class=" justify-content-center pb-4" src="../../images/moods/moods<%= sketch.img1 %>.jpg">
+			</div>
+			<%- include('../../partials/puzzle-right.ejs') %>
+		</div>
+		<div data-aos="fade" data-aos-duration="2000" class="row bigrowman">
+			<div class="col-2 col-md-3 col-xl-4 image-container">
+				<img class=" d-none d-xl-block pl-5 pr-3" src="../../images/moods/moods<%= sketch.img1 %>.jpg">
+				<div class="d-none d-md-block col p-1">
+					<h3 class="pr-md-5"><span class="italic h3-link"><%= sketch.title %> </span></h3>
+					<h3 class="subtext pr-md-5 m-0">Juliette Cottu's <a class="italic subtext h3-link" href="/moods">Moods</a></h3>
+				</div>
+			</div>
+			<div class="border-yo col-8 col-md-6 col-xl-4 scrollable">
+				<% if (sketch.sold) { %>
+					<div class="logo-container">
+						<h3 class="text-left">this piece has already sold.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+					</div>
+					<div>
+						<h3 class="text-left">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else { %> 
+					<% if(country === 'none') {%>
+						<div class="logo-container">
+							<h3 class="text-left">shipping for works in this collection is currently only offered for Europe, North America and Japan.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">if you are located elsewhere, please email <a class="h3-link" href="mailto:hi@9vtbackslash5.com">hi@9vtbackslash5.com</a> so that we may put the piece on hold for you while we work out the best way to safely ship it.</h3>
+						</div>
+						<div class="logo-container">
+							<form action="/moods/<%= sketch._id%>/buy" method="POST" class="text-right mb-2">
+								<h3 class="text-left">are you located in the
+									<button class='h3-link' type='submit' name='action' value='uk'>United Kingdom</button>, the rest of 
+									<button class='h3-link' type='submit' name='action' value='europe'>Europe</button>, the
+									<button class='h3-link' type='submit' name='action' value='usa'>United States</button>,
+									<button class='h3-link' type='submit' name='action' value='canada'>Canada</button>,
+									<button class='h3-link' type='submit' name='action' value='mexico'>Mexico</button> or
+									<button class='h3-link' type='submit' name='action' value='japan'>Japan</button>?
+								</h3>
+							</form>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'usa') { %>
+						<div class="logo-container">
+							<h3 class="text-left">shipping to the United States is £24.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">your total is £484.</h3>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: center; padding-top: 10px;">
+							<div style="width: 75%">
+								<div id="smart-button-container">
+									<div style="text-align: center;">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'uk') { %>
+						<div class="logo-container">
+							<h3 class="text-left">shipping to the United Kingdom is £9.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">your total is £469.</h3>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: center; padding-top: 10px;">
+							<div style="width: 75%">
+								<div id="smart-button-container">
+									<div style="text-align: center;">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'canada') { %>
+						<div class="logo-container">
+							<h3 class="text-left">shipping to Canada is £20.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">your total is £480.</h3>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: center; padding-top: 10px;">
+							<div style="width: 75%">
+								<div id="smart-button-container">
+									<div style="text-align: center;">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'mexico') { %>
+						<div class="logo-container">
+							<h3 class="text-left">shipping to Mexico is £18.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">your total is £478.</h3>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: center; padding-top: 10px;">
+							<div style="width: 75%">
+								<div id="smart-button-container">
+									<div style="text-align: center;">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'europe') { %>
+						<div class="logo-container">
+							<h3 class="text-left">shipping to Europe is £14.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">your total is £474.</h3>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: center; padding-top: 10px;">
+							<div style="width: 75%">
+								<div id="smart-button-container">
+									<div style="text-align: center;">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'japan') { %>
+						<div class="logo-container">
+							<h3 class="text-left">shipping to Japan is £18.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">your total is £478.</h3>
+						</div>
+						<div style="width: 100%; display: flex; justify-content: center; padding-top: 10px;">
+							<div style="width: 75%">
+								<div id="smart-button-container">
+									<div style="text-align: center;">
+										<div id="paypal-button-container"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class="text-right">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } else if(country === 'purchased') { %>
+						<div>
+							<h3 class='text-left'>thanks for your purchase!</h3>
+						</div>
+						<div>
+							<h3 class='text-right'>this piece ships within 1-3 business days, and takes around 2-7 business days to arrive, depending on where you're located.</h3>
+						</div>
+						<div>
+							<h3 class='text-left'>if you have any questions about your purchase, send us an email at <a class='h3-link' href='mailto:transactions@9vtbackslash5.com'>transactions@9vtbackslash5.com</a>.</h3>
+						</div>
+						<div class='logo-container'>
+							<h3 class='text-right'>click <a href='/moods' class='h3-link'>here</a> to navigate back to the collection.</h3>
+						</div>
+						<div>
+							<h3 class='text-left'>click <a href='/catalogue' class='h3-link'>here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<% } %>
+				<% } %> 
+			</div>
+			<div class="col-2 col-md-3 col-xl-4 image-container">
+				<div class="d-none d-md-block col px-1">
+					<h3 class="subtext text-right m-0 pl-5">multiple mediums on paper</h3>
+					<h3 class="subtext text-right m-0 pl-5">16.5 x 22 inches</h3>
+					<h3 class="subtext text-right m-0 pl-5">£460</h3>
+				</div>
+				<img class=" d-none d-xl-block pl-3 pr-5" src="../../images/moods/moods<%= sketch.img2 %>.jpg">
+			</div>
+	</div>
+	<div class="row bigrowman">
+		<%- include('../../partials/puzzle-left.ejs') %>
+		<div class="d-none d-xl-block col-4">
+			<div id="R19" class="row babyrowman justify-content-end align-items-center"></div>
+			<div id="R20" class="row babyrowman justify-content-center align-items-center"></div>
+			<div id="R21" class="row babyrowman justify-content-start align-items-center"></div>
+		</div>
+		<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+			<img class=" justify-content-center pt-4" src="../../images/moods/moods<%= sketch.img2 %>.jpg">
+		</div>
+		<div class="col-4">
+			<div id="R22" class="row babyrowman justify-content-start align-items-center"></div>
+			<div id="R23" class="row babyrowman justify-content-end align-items-center"></div>
+			<div id="R24" class="row babyrowman justify-content-center align-items-center">
+				<span id="link3"><a href="/inquiries">inquiries</a></span>
+				<p class="backslashes mb-0 mt-1">\\</p>
+				<span id="link4"><a href="/about-us">about us</a></span>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<form class="purchase-form" action="/moods/<%- sketch._id %>/buy" method="POST">
+		<input name="customer" type="hidden" value="">
+	</form>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+			AOS.init();
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script type="text/javascript" src="/functions/jquery.arctext.js"></script>
+	<script type="text/javascript" src="/functions/function.js"></script>
+	<script src="https://www.paypal.com/sdk/js?client-id=AdtXVa6a7KqjA5GVecbdipeskk0bjakXPq1h5b_yM_wwGHDjsQK3jikeusvNfpSOc6rfby0MxBGAIfyX&currency=GBP" data-sdk-integration-source="button-factory"></script>
+
+	<% if(country === 'usa'){ %>
+		<script>
+			function initPayPalButton() {
+			paypal.Buttons({
+				style: {
+				shape: 'pill',
+				color: 'black',
+				layout: 'vertical',
+				label: 'paypal'
+				},
+	
+				createOrder: function(data, actions) {
+			  return actions.order.create({
+				purchase_units: [{
+					"amount":{
+						"currency_code":"GBP",
+						"value":484,
+						"breakdown":{
+							"item_total":{
+								"currency_code":"GBP",
+								"value":460
+							},
+								"shipping":{
+									"currency_code":"GBP",
+									"value":24
+								},
+								"tax_total":{
+									"currency_code":"GBP",
+									"value":0
+								}
+							}
+						}
+					}
+				]
+			  });
+			},
+		
+				onApprove: function(data, actions) {
+				return actions.order.capture().then(function(details) {
+					$(".scrollable").empty().append("<div><h3 class='text-left'>processing...</h3></div><div><h3 class='text-right'>one moment, please.</h3></div>")
+					$('input[name=customer]').val(details.payer.email_address);
+					$(".purchase-form").submit();
+				});
+				},
+		
+				onError: function(err) {
+				console.log(err);
+				}
+			}).render('#paypal-button-container');
+			}
+			initPayPalButton();
+		</script>
+	<% } else if(country === 'uk'){ %>
+		<script>
+			function initPayPalButton() {
+			paypal.Buttons({
+				style: {
+				shape: 'pill',
+				color: 'black',
+				layout: 'vertical',
+				label: 'paypal'
+				},
+	
+				createOrder: function(data, actions) {
+			  return actions.order.create({
+				purchase_units: [{
+					"amount":{
+						"currency_code":"GBP",
+						"value":469,
+						"breakdown":{
+							"item_total":{
+								"currency_code":"GBP",
+								"value":460
+							},
+								"shipping":{
+									"currency_code":"GBP",
+									"value":9
+								},
+								"tax_total":{
+									"currency_code":"GBP",
+									"value":0
+								}
+							}
+						}
+					}
+				]
+			  });
+			},
+		
+				onApprove: function(data, actions) {
+				return actions.order.capture().then(function(details) {
+					$(".scrollable").empty().append("<div><h3 class='text-left'>processing...</h3></div><div><h3 class='text-right'>one moment, please.</h3></div>")
+					$('input[name=customer]').val(details.payer.email_address);
+					$(".purchase-form").submit();
+				});
+				},
+		
+				onError: function(err) {
+				console.log(err);
+				}
+			}).render('#paypal-button-container');
+			}
+			initPayPalButton();
+		</script>
+	<% } else if(country === 'canada'){ %>
+		<script>
+			function initPayPalButton() {
+			paypal.Buttons({
+				style: {
+				shape: 'pill',
+				color: 'black',
+				layout: 'vertical',
+				label: 'paypal'
+				},
+	
+				createOrder: function(data, actions) {
+			  return actions.order.create({
+				purchase_units: [{
+					"amount":{
+						"currency_code":"GBP",
+						"value":480,
+						"breakdown":{
+							"item_total":{
+								"currency_code":"GBP",
+								"value":460
+							},
+								"shipping":{
+									"currency_code":"GBP",
+									"value":20
+								},
+								"tax_total":{
+									"currency_code":"GBP",
+									"value":0
+								}
+							}
+						}
+					}
+				]
+			  });
+			},
+		
+				onApprove: function(data, actions) {
+				return actions.order.capture().then(function(details) {
+					$(".scrollable").empty().append("<div><h3 class='text-left'>processing...</h3></div><div><h3 class='text-right'>one moment, please.</h3></div>")
+					$('input[name=customer]').val(details.payer.email_address);
+					$(".purchase-form").submit();
+				});
+				},
+		
+				onError: function(err) {
+				console.log(err);
+				}
+			}).render('#paypal-button-container');
+			}
+			initPayPalButton();
+		</script>
+	<% } else if(country === 'europe'){ %>
+		<script>
+			function initPayPalButton() {
+			paypal.Buttons({
+				style: {
+				shape: 'pill',
+				color: 'black',
+				layout: 'vertical',
+				label: 'paypal'
+				},
+	
+				createOrder: function(data, actions) {
+			  return actions.order.create({
+				purchase_units: [{
+					"amount":{
+						"currency_code":"GBP",
+						"value":474,
+						"breakdown":{
+							"item_total":{
+								"currency_code":"GBP",
+								"value":460
+							},
+								"shipping":{
+									"currency_code":"GBP",
+									"value":14
+								},
+								"tax_total":{
+									"currency_code":"GBP",
+									"value":0
+								}
+							}
+						}
+					}
+				]
+			  });
+			},
+		
+				onApprove: function(data, actions) {
+				return actions.order.capture().then(function(details) {
+					$(".scrollable").empty().append("<div><h3 class='text-left'>processing...</h3></div><div><h3 class='text-right'>one moment, please.</h3></div>")
+					$('input[name=customer]').val(details.payer.email_address);
+					$(".purchase-form").submit();
+				});
+				},
+		
+				onError: function(err) {
+				console.log(err);
+				}
+			}).render('#paypal-button-container');
+			}
+			initPayPalButton();
+		</script>
+	<% } else if(country === 'mexico' || country === 'japan'){ %>
+		<script>
+			function initPayPalButton() {
+			paypal.Buttons({
+				style: {
+				shape: 'pill',
+				color: 'black',
+				layout: 'vertical',
+				label: 'paypal'
+				},
+	
+				createOrder: function(data, actions) {
+			  return actions.order.create({
+				purchase_units: [{
+					"amount":{
+						"currency_code":"GBP",
+						"value":478,
+						"breakdown":{
+							"item_total":{
+								"currency_code":"GBP",
+								"value":460
+							},
+								"shipping":{
+									"currency_code":"GBP",
+									"value":18
+								},
+								"tax_total":{
+									"currency_code":"GBP",
+									"value":0
+								}
+							}
+						}
+					}
+				]
+			  });
+			},
+		
+				onApprove: function(data, actions) {
+				return actions.order.capture().then(function(details) {
+					$(".scrollable").empty().append("<div><h3 class='text-left'>processing...</h3></div><div><h3 class='text-right'>one moment, please.</h3></div>")
+					$('input[name=customer]').val(details.payer.email_address);
+					$(".purchase-form").submit();
+				});
+				},
+		
+				onError: function(err) {
+				console.log(err);
+				}
+			}).render('#paypal-button-container');
+			}
+			initPayPalButton();
+		</script>
+	<% } %>
+	</body>
+	</html>

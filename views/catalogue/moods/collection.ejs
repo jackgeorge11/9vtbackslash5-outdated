@@ -1,0 +1,71 @@
+<%- include('../../partials/header.ejs', {content: "Cottu's 'Moods' collection, May 2021"}) %>
+
+<div class="main mx-3 py-2">
+			<div class="row bigrowman">
+				<div class="col-4">
+					<div id="R1" class="row babyrowman justify-content-center align-items-center">
+						<span id="link1"><a href="/">home</a></span><p class="backslashes mb-0 mt-1">\\</p><span id="link2"><a href="/submissions">submissions</a></span>
+					</div>
+					<div id="R2" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R3" class="row babyrowman justify-content-end align-items-center"></div>
+				</div>
+				<div class="col-4">
+					<div id="R4" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R5" class="row babyrowman justify-content-center align-items-center"></div>
+					<div id="R6" class="row babyrowman justify-content-end align-items-center"></div>
+				</div>
+				<%- include('../../partials/puzzle-right.ejs') %>
+			</div>
+			<div data-aos="fade" data-aos-duration="2000" class="row bigrowman">
+				<div class="col-1 col-xl-2">
+					<div id="R7" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R8" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R9" class="row babyrowman justify-content-center align-items-center"></div>
+				</div>
+				<div class="col-10 col-xl-8 align-items-center justify-content-center hath-scrolled">
+					<div class="moods-scroller">
+						<div style="display: flex; flex-direction: column;">
+							<h3 class="italic h3-link">Moods</h3>
+							<h3 class="sub-subtext">(scroll -->)</h3>
+						</div>
+						<% collection.map((sketch) => { %>
+							 <a class="image-link" href="/moods/<%= sketch._id %>">
+								<img class="px-3" src="/images/moods/moods<%= sketch.img1 %>.jpg">
+							</a>
+							<div class="col">
+								<h3><a class="italic h3-link" href="/moods/<%= sketch._id %>"><%= sketch.title %></a></h3>
+								<% if (sketch.sold) { %>
+									<h3 class="sub-subtext">(sold)</h3>
+								<% } %> 
+							</div>
+						<% }) %>
+					</div>
+					
+				</div>
+				<div class="col-1 col-xl-2">
+					<div id="R10" class="row babyrowman justify-content-center align-items-center"></div>
+					<div id="R11" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R12" class="row babyrowman justify-content-start align-items-center"></div>
+				</div>
+			</div>
+			<div class="row bigrowman">
+				<%- include('../../partials/puzzle-left.ejs') %>
+				<div class="col-4">
+					<div id="R19" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R20" class="row babyrowman justify-content-center align-items-center"></div>
+					<div id="R21" class="row babyrowman justify-content-start align-items-center"></div>
+				</div>
+				<div class="col-4">
+					<div id="R22" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R23" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R24" class="row babyrowman justify-content-center align-items-center">
+						<!-- how to align the objects in this row at the bottom of the screen -->
+						<span id="link3"><a href="/inquiries">inquiries</a></span>
+						<p class="backslashes mb-0 mt-1">\\</p>
+						<span id="link4"><a href="/about-us">about us</a></span>
+					</div>
+				</div>
+			</div>
+	</div>
+
+<%- include('../../partials/footer.ejs') %>

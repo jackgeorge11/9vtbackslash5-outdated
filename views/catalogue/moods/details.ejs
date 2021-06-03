@@ -1,0 +1,117 @@
+<%- include('../../partials/header.ejs', {content: 'okai'}) %>
+
+	<div class="main mx-3 py-2">
+		<% if (imgA) { %>
+			<img id="enlarge" src="../../images/moods/moods<%= sketch.img1 %>.jpg" style="cursor: zoom-in;">
+			<div style="position: fixed; bottom: 0px; right: 0px; max-width: 520px; padding: 15px; z-index: 5;">
+				<div class="logo-container">
+					<h3 class="text-left">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+				</div>
+				<div class="logo-container">
+					<h3 class="text-right">alternatively, click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+				</div>
+			</div>
+		<% } else if (imgB) { %> 
+			<img id="enlarge" src="../../images/moods/moods<%= sketch.img2 %>.jpg" style="cursor: zoom-in;">
+			<div style="position: fixed; bottom: 0px; right: 0px; max-width: 520px; padding: 15px; z-index: 5;">
+				<div class="logo-container">
+					<h3 class="text-left">click <a href="/moods/<%= sketch._id %>" class="h3-link">here</a> to navigate back to the details.</h3>
+				</div>
+				<div class="logo-container">
+					<h3 class="text-right">alternatively, click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+				</div>
+			</div>
+		<% } else { %> 
+
+		<div class="row bigrowman">
+			<div class="col-4">
+				<div id="R1" class="row babyrowman justify-content-center align-items-center">
+					<span id="link1"><a href="/">home</a></span><p class="backslashes mb-0 mt-1">\\</p><span id="link2"><a href="/submissions">submissions</a></span>
+				</div>
+				<div id="R2" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R3" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-none d-xl-block col-4">
+				<div id="R4" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R5" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R6" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class="imgA justify-content-center pb-4" src="../../images/moods/moods<%= sketch.img1 %>.jpg">
+			</div>
+			<%- include('../../partials/puzzle-right.ejs') %>
+		</div>
+		<div data-aos="fade" data-aos-duration="2000" class="row bigrowman">
+				<form id="formA" action="/moods/<%- sketch._id %>" method="POST" class="col-2 col-md-3 col-xl-4 image-container">
+					<img class="imgA d-none d-xl-block pl-5 pr-3" src="../../images/moods/moods<%= sketch.img1 %>.jpg">
+					<div class="d-none d-md-block col p-1">
+						<h3 class="pr-md-5"><span class="italic h3-link"><%= sketch.title %> </span></h3>
+						<h3 class="subtext pr-md-5 m-0">Juliette Cottu's <a class="italic subtext h3-link" href="/moods">Moods</a></h3>
+					</div>
+					<input name="img" type="hidden" value="imgA">
+				</form>
+				<div class="border-yo col-8 col-md-6 col-xl-4 scrollable">
+					<div class="logo-container">
+						<h3 class="text-left">amidst 2020's bouts of emotional disarray is born Cottu's <a class="italic h3-link" href="/moods">Moods</a> collection.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">a multi-medium autoethnography of dispositions, tempers, conjured personae caught the wake of life's perturbations.</h3>
+					</div>
+					<div class="logo-container">
+						<% if (sketch.sold) { %>
+							<h3 class="text-left">this piece has already sold.</h3>	
+						<% } else { %> 
+							<h3 class="text-left">you can purchase this sketch <a href="/moods/<%= sketch._id %>/buy" class="h3-link">here</a>.</h3>
+							<!-- <h3 class="text-left">this collection will be available to the public on May 17th.</h3> -->
+						<% } %>
+					</div>
+					<!-- <div class="logo-container">
+						<h3 class="text-right">if you are looking to purchase multiple sketches, you can do so <a href="/moods/<%= sketch._id %>/buy-many" class="h3-link">here</a>.</h3>
+					</div> -->
+					<div class="logo-container">
+						<h3 class="text-right">click <a href="/moods" class="h3-link">here</a> to navigate back to the collection.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-left mb-2">click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				</div>
+				<form id="formB" action="/moods/<%- sketch._id %>" method="POST" class="col-2 col-md-3 col-xl-4 image-container">
+					<div class="d-none d-md-block col px-1">
+						<h3 class="subtext text-right m-0 pl-5">multiple mediums on paper</h3>
+						<h3 class="subtext text-right m-0 pl-5">16.5 x 22 inches</h3>
+						<% if (sketch.sold) { %>
+							<h3 class="subtext text-right m-0 pl-5">sold (£200)</h3>
+						<% } else { %> 
+							<h3 class="subtext text-right m-0 pl-5">£460</h3>
+						<% } %>
+					</div>
+					<img class="imgB d-none d-xl-block pl-3 pr-5" src="../../images/moods/moods<%= sketch.img2 %>.jpg">
+					<input name="img" type="hidden" value="imgB">
+				</form>
+		</div>
+		<div class="row bigrowman">
+			<%- include('../../partials/puzzle-left.ejs') %>
+			<div class="d-none d-xl-block col-4">
+				<div id="R19" class="row babyrowman justify-content-end align-items-center"></div>
+				<div id="R20" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R21" class="row babyrowman justify-content-start align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class="imgB justify-content-center pt-4" src="../../images/moods/moods<%= sketch.img2 %>.jpg">
+			</div>
+			<div class="col-4">
+				<div id="R22" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R23" class="row babyrowman justify-content-end align-items-center"></div>
+				<div id="R24" class="row babyrowman justify-content-center align-items-center">
+					<span id="link3"><a href="/inquiries">inquiries</a></span>
+					<p class="backslashes mb-0 mt-1">\\</p>
+					<span id="link4"><a href="/about-us">about us</a></span>
+				</div>
+			</div>
+		</div>
+
+		<% } %> 
+
+	</div>
+
+<%- include('../../partials/footer.ejs') %>

@@ -1,0 +1,100 @@
+<%- include('partials/header.ejs', {content: 'i.e. contact us, or subscribe to our mailing list.'}) %>
+
+	<div class="main mx-3 py-2">
+			<div class="row bigrowman">
+				<div class="col-4">
+					<div id="R1" class="row babyrowman justify-content-center align-items-center">
+						<span id="link1"><a href="/">home</a></span><p class="backslashes mb-0 mt-1">\\</p><span id="link2"><a href="/catalogue">catalogue</a></span>
+					</div>
+					<div id="R2" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R3" class="row babyrowman justify-content-end align-items-center"></div>
+				</div>
+				<div class="col-4">
+					<div id="R4" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R5" class="row babyrowman justify-content-center align-items-center"></div>
+					<div id="R6" class="row babyrowman justify-content-end align-items-center"></div>
+				</div>
+				<%- include('partials/puzzle-right.ejs') %>
+			</div>
+			<div data-aos="fade" data-aos-duration="2000" class="row bigrowman">
+				<div class="col-2 col-md-3 col-xl-4">
+					<div id="R7" class="row babyrowman justify-content-center align-items-center"></div>
+					<div id="R8" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R9" class="row babyrowman justify-content-end align-items-center"></div>
+				</div>
+				<div class="col-8 col-md-6 col-xl-4 align-items-center">
+					<% if (subscribeText == 1) { %>
+						<div class="logo-container">
+							<h3 class="text-left">subscription successful.</h3>			
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">welcome to our digital family.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">for general inquiries, send us an email at <a class="h3-link" href="mailto:hi@9vtbackslash5.com">hi@9vtbackslash5.com</a>.</h3>
+						</div>
+					<% } else if (subscribeText == 2) { %>
+						<div class="logo-container">
+							<h3 class="text-left"><%= email %> is already on our mailing list.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">you must really love us!</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-left">for general inquiries, send us an email at <a class="h3-link" href="mailto:hi@9vtbackslash5.com">hi@9vtbackslash5.com</a>.</h3>
+						</div>
+					<% } else if (subscribeText == 3) { %>
+						<div class="logo-container">
+							<h3 class="text-left">sorry, that's not a valid email address.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">try again.</h3>
+						</div>
+						<div class="logo-container">
+							<form action="/inquiries" method="POST">
+								<input type="email" name="email" placeholder="enter email here" >
+								<input type="submit" value="subscribe">
+							</form>
+						</div>
+					<% } else { %>
+						<div class="logo-container">
+							<h3 class="text-left">for general inquiries, send us an email at <a class="h3-link" href="mailto:hi@9vtbackslash5.com">hi@9vtbackslash5.com</a>.</h3>
+						</div>
+						<div class="logo-container">
+							<h3 class="text-right">if you want updates on what we're working on, subscribe to our mailing list.</h3>
+						</div>
+						<div class="logo-container">
+							<form action="/inquiries" method="POST">
+								<input type="email" name="email" placeholder="enter email here" >
+								<input type="submit" value="subscribe">
+							</form>
+						</div>
+					<% } %>
+				</div>
+				<div class="col-2 col-md-3 col-xl-4">
+					<div id="R10" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R11" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R12" class="row babyrowman justify-content-center align-items-center"></div>
+				</div>
+			</div>
+			<div class="row bigrowman">
+				<%- include('partials/puzzle-left.ejs') %>
+				<div class="col-4">
+					<div id="R19" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R20" class="row babyrowman justify-content-center align-items-center"></div>
+					<div id="R21" class="row babyrowman justify-content-start align-items-center"></div>
+				</div>
+				<div class="col-4">
+					<div id="R22" class="row babyrowman justify-content-start align-items-center"></div>
+					<div id="R23" class="row babyrowman justify-content-end align-items-center"></div>
+					<div id="R24" class="row babyrowman justify-content-center align-items-center">
+						<!-- how to align the objects in this row at the bottom of the screen -->
+						<span id="link3"><a href="/submissions">submissions</a></span>
+						<p class="backslashes mb-0 mt-1">\\</p>
+						<span id="link4"><a href="/about-us">about us</a></span>
+					</div>
+				</div>
+			</div>
+	</div>
+
+<%- include('partials/footer.ejs') %>
