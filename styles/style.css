@@ -260,6 +260,51 @@ img {
 	display: none;
 }
 
+.home-logo {
+	max-height: 33vh;
+	max-width: 33vw;
+}
+
+.side-logo {
+	position: fixed;
+	padding: 0px !important;
+	max-height: 33vh;
+}
+
+.logo-left {
+	left: -2px;
+}
+
+.logo-right {
+	right: -2px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+    .logo-left {
+        left: -6px;
+	}
+    .logo-right {
+        right: -6px;
+    }
+}
+
+@-moz-document url-prefix() {
+    .logo-left {
+        left: -2px;
+	}
+    .logo-right {
+        right: -2px;
+	}
+}
+
+/* ::-webkit-full-page-media, _:future, :root .logo-left {
+	left: -2px;
+}
+
+::-webkit-full-page-media, _:future, :root .logo-right {
+	right: -2px;
+} */
+
 @media only screen and (max-width: 768px) {
 	.h3-link, .h3-link {
 	  font-size: .75rem;
