@@ -279,6 +279,10 @@ img {
 	right: -2px;
 }
 
+.hidden-input {
+	display: none;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
     .logo-left {
         left: -6px;

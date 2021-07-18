@@ -66,11 +66,19 @@ app.get('/about-us', (req, res) => {
 	res.render('about-us')
 });
 
+// app.get('/catalogue', async (req, res) => {
+// 	const ids = ['608ecb375efe9cd7185c2298', '608ecb395efe9cd7185c229c', '608ecb395efe9cd7185c229d', '608ecb395efe9cd7185c229e', '608ecb3a5efe9cd7185c229f', '608ecb3a5efe9cd7185c22a0'];
+// 	let collection = await Sketch.find({_id: {$in:ids}});
+// 	const sketch = collection[Math.floor(Math.random() * 6)]
+// 	res.render('catalogue', {image: sketch.img1});
+// });
+
 app.get('/catalogue', async (req, res) => {
 	const ids = ['608ecb375efe9cd7185c2298', '608ecb395efe9cd7185c229c', '608ecb395efe9cd7185c229d', '608ecb395efe9cd7185c229e', '608ecb3a5efe9cd7185c229f', '608ecb3a5efe9cd7185c22a0'];
-	let collection = await Sketch.find({_id: {$in:ids}});
-	const sketch = collection[Math.floor(Math.random() * 6)]
-	res.render('catalogue', {image: sketch.img1});
+	const index = ids[Math.floor(Math.random() * 6)]
+	let sketch = await Sketch.find({_id: index}).then(data => {return data[0]});
+	console.log(sketch)
+	res.render('catalogue', {image: sketch.img1})
 });
 
 app.get('/triple-entendre', (req, res) => {
@@ -167,6 +175,30 @@ app.post('/moods/:sketch/buy', async (req, res) => {
 		res.render('catalogue/moods/buy', { sketch: mood, country: 'purchased'});
 	} else {
 		res.render('catalogue/moods/buy', { sketch: mood, country: req.body.action});
+	}
+});
+
+app.get('/frustrations', async (req, res) => {
+	res.render(`catalogue/frustrations/details`, { phase: 1 })
+});
+
+app.post('/frustrations', async (req, res) => {
+	if (req.body.email && (req.body.email === 'your email' || req.body.email === 'your email below' || req.body.email === 'your email below.')) {
+		res.render(`catalogue/frustrations/details`, { phase: 'email' })
+	} else if (req.body.captcha && (req.body.captcha === 'the following captcha' || req.body.captcha === 'the following captcha below' || req.body.captcha === 'the following captcha below.')) {
+		res.render(`catalogue/frustrations/details`, { phase: 'captcha' })
+	} else if (req.body.email) {
+		let email = req.body.email
+		let phase = parseInt(req.body.phase)
+		let emailLength = email.length
+		let emailIndex = Math.floor(Math.random() * emailLength) - 1
+		phase ++
+		email = email.slice(0, emailIndex) + email.slice(emailIndex + 1);
+		res.render(`catalogue/frustrations/details`, { phase: phase, email: email })
+	} else if (req.body.captcha) {
+		let phase = parseInt(req.body.phase)
+		phase ++
+		res.render(`catalogue/frustrations/details`, { phase: phase })
 	}
 });
 

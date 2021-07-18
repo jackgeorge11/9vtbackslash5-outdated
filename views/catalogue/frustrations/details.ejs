@@ -1,0 +1,233 @@
+<%- include('../../partials/header.ejs', {content: 'our first publication, Triple Entendre, by Jack George.'}) %>
+
+	<div class="main mx-3 py-2">
+		<div class="row bigrowman">
+			<div class="col-4">
+				<div id="R1" class="row babyrowman justify-content-center align-items-center">
+					<span id="link1"><a href="/">home</a></span><p class="backslashes mb-0 mt-1">\\</p><span id="link2"><a href="/submissions">submissions</a></span>
+				</div>
+				<div id="R2" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R3" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-none d-xl-block col-4">
+				<div id="R4" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R5" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R6" class="row babyrowman justify-content-end align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class="justify-content-center pb-4" src="../../images/frustrations/captcha.jpeg">
+			</div>
+			<%- include('../../partials/puzzle-right.ejs') %>
+		</div>
+		<div data-aos="fade" data-aos-duration="2000" class="row bigrowman">
+			<div class="col-2 col-md-3 col-xl-4 image-container">
+					<img class="d-none d-xl-block pl-5 pr-3" src="../../images/frustrations/captcha.jpeg">
+				<div class="d-none d-md-block col p-1">
+					<h3 class="pr-md-5"><a class="italic h3-link" href="/frustrations">Frustrations</a></h3>
+					<h3 class="subtext pr-md-5 m-0">by Jack George</h3>
+					<h3 class="subtext pr-md-5 m-0">July 2021</h3>
+				</div>
+			</div>
+			<div class="border-yo col-8 col-md-6 col-xl-4 scrollable">
+				<% if (phase === 1) {%>
+					<div class="logo-container">
+						<h3 class="text-left"><a class="italic h3-link" href="/frustrations">Frustrations</a>, a conceptual piece by Jack George, both queries and parodies the participatory entanglement between spectator and work of art in an era where experience seems always to be somehow digitally mediated.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">by questioning said trichotomy, George urges the participant to behold the very medium which both facilitates and constitutes the artistic experience itself.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-left">considered by some to be the most self-aware composition of his contemporaries, <a class="italic h3-link" href="/frustrations">Frustrations</a> takes the form of a dialogue, whereby to say much more would, as it does, shatter the illusion of 'the work of art' where it stands, already feebly, George might add.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">to obtain access to this piece, please type your email below.</h3>
+					</div>
+					<div class="logo-container">
+						<form action="/frustrations" method="POST">
+							<input type="text" name="email" placeholder="enter email here" >
+							<input type="text" name="phase" value="<%= phase %>" class="hidden-input">
+							<input type="submit" value="continue">
+						</form>
+					</div>
+					<div>
+						<h3 class="text-right">or click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else if (phase > 1 && phase < 4) { %>
+					<div class="logo-container">
+						<h3 class="text-left">sorry, '<%= email %>' is not a valid email address.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">to obtain access to this piece, please type your email below.</h3>
+					</div>
+					<div class="logo-container">
+						<form action="/frustrations" method="POST">
+							<input type="text" name="email" placeholder="enter email here" >
+							<input type="text" name="phase" value="<%= phase %>" class="hidden-input">
+							<input type="submit" value="continue">
+						</form>
+					</div>
+					<div>
+						<h3 class="text-right">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-left">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else if (phase === 4) { %>
+					<div class="logo-container">
+						<h3 class="text-left">sorry, but you have exceeded your access attempts.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">to verify that you, too, are not a computer, please type the following captcha in the box below.</h3>
+					</div>
+					<div class="logocontainer">
+						<img src="../../images/frustrations/captcha4.jpeg" alt="captcha" class="captcha">
+					</div>
+					<div class="logo-container">
+						<form action="/frustrations" method="POST">
+							<input type="text" name="captcha" placeholder="enter captcha here" >
+							<input type="text" name="phase" value="<%= phase %>" class="hidden-input">
+							<input type="submit" value="continue">
+						</form>
+					</div>
+					<div>
+						<h3 class="text-right">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-left">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else if (phase === 5) { %>
+					<div class="logo-container">
+						<h3 class="text-left">sorry, that was incorrect.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">to verify that you, too, are not a computer, please type the following captcha below.</h3>
+					</div>
+					<div class="logocontainer">
+						<img src="../../images/frustrations/captcha.jpeg" alt="captcha" class="captcha">
+					</div>
+					<div class="logo-container">
+						<form action="/frustrations" method="POST">
+							<input type="text" name="captcha" placeholder="enter captcha here" >
+							<input type="text" name="phase" value="<%= phase %>" class="hidden-input">
+							<input type="submit" value="continue">
+						</form>
+					</div>
+					<div>
+						<h3 class="text-right">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-left">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else if (phase > 5) { %>
+					<div class="logo-container">
+						<h3 class="text-left">sorry, but you have exceeded your attempts for today.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">please try again tomorrow.</h3>
+					</div>
+					<div>
+						<h3 class="text-left">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-right">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } else if (phase === 'email' || phase === 'captcha') { %>
+					<div class="logo-container">
+						<h3 class="text-left">well done.</h3>
+					</div>
+					<% if (phase === 'email') { %> 
+					<div class="logo-container">
+						<h3 class="text-right">if you're ever interested in submitting ideas of your own, please checkout our <a class="h3-link" href="/submissions">submissions</a> page.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-left">you may now click <a class="h3-link" href="/frustrations">here</a> to access this piece.</h3>
+					</div>
+					<div>
+						<h3 class="text-right">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-left">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+					<% } else if (phase === 'captcha') { %> 
+						<div class="logo-container">
+							<h3 class="text-right">to obtain access to this piece, please type your email below.</h3>
+						</div>
+						<div class="logo-container">
+							<form action="/frustrations" method="POST">
+								<input type="text" name="email" placeholder="enter email here" >
+								<input type="text" name="phase" value="<%= phase %>" class="hidden-input">
+								<input type="submit" value="continue">
+							</form>
+						</div>
+						<div>
+							<h3 class="text-right">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+						</div>
+						<div>
+							<h3 class="text-left">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+						</div>
+					<div>
+						<h3 class="text-left">or click <a href="/frustrations" class="h3-link">here</a> to navigate back to the details.</h3>
+					</div>
+					<div>
+						<h3 class="text-right">or <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+					<% } %> 
+				<% } else { %>
+					<div class="logo-container">
+						<h3 class="text-left"><a class="italic h3-link" href="/frustrations">Frustrations</a>, a conceptual piece by Jack George, both queries and parodies the participatory entanglement between spectator and work of art in an era where experience seems always to be somehow digitally mediated.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">by questioning said trichotomy, George urges the participant to behold the very medium which both facilitates and constitutes the artistic experience itself.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-left">considered by some to be the most self-aware composition of our contemporary, <a class="italic h3-link" href="/frustrations">Frustrations</a> takes the form of a dialogue, whereby to say much more would, as it does, shatter the illusion of 'the work of art' where it stands, already feebly, George might add.</h3>
+					</div>
+					<div class="logo-container">
+						<h3 class="text-right">to obtain access to this piece, please type your email below.</h3>
+					</div>
+					<div class="logo-container">
+						<form action="/frustrations" method="POST">
+							<input type="text" name="email" placeholder="enter email here" >
+							<input type="text" name="phase" value="<%= phase %>" class="hidden-input">
+							<input type="submit" value="continue">
+						</form>
+					</div>
+					<div>
+						<h3 class="text-right">or click <a href="/catalogue" class="h3-link">here</a> to navigate back to our catalogue.</h3>
+					</div>
+				<% } %>
+			</div>
+			<div class="col-2 col-md-3 col-xl-4 image-container">
+				<div class="d-none d-md-block col px-1">
+					<h3 class="subtext text-right m-0 pl-5">conceptual</h3>
+					<h3 class="subtext text-right m-0 pl-5">digital</h3>
+					<h3 class="subtext text-right m-0 pl-5">$0</h3>
+					<h3 class="subtext text-right m-0 pl-5">(email required)</h3>
+
+				</div>
+				<img class="d-none d-xl-block pl-3 pr-5" src="../../images/frustrations/captcha.jpeg">
+			</div>
+		</div>
+		<div class="row bigrowman">
+			<%- include('../../partials/puzzle-left.ejs') %>
+			<div class="d-none d-xl-block col-4">
+				<div id="R19" class="row babyrowman justify-content-end align-items-center"></div>
+				<div id="R20" class="row babyrowman justify-content-center align-items-center"></div>
+				<div id="R21" class="row babyrowman justify-content-start align-items-center"></div>
+			</div>
+			<div class="d-flex d-xl-none col-4 image-container justify-content-center">
+				<img class="justify-content-center pt-4" src="../../images/frustrations/captcha.jpeg">
+			</div>
+			<div class="col-4">
+				<div id="R22" class="row babyrowman justify-content-start align-items-center"></div>
+				<div id="R23" class="row babyrowman justify-content-end align-items-center"></div>
+				<div id="R24" class="row babyrowman justify-content-center align-items-center">
+					<span id="link3"><a href="/inquiries">inquiries</a></span>
+					<p class="backslashes mb-0 mt-1">\\</p>
+					<span id="link4"><a href="/about-us">about us</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%- include('../../partials/footer.ejs') %>
