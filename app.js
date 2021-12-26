@@ -95,13 +95,13 @@ app.post('/triple-entendre', async (req, res) => {
 	res.render('catalogue/triple-entendre/details', {manuscript, randomExcerpt, generated: true})
 });
 
-app.get('/triple-entendre/buy', (req, res) => {
-	res.render('catalogue/triple-entendre/buy', { country: 'none'});
-});
+// app.get('/triple-entendre/buy', (req, res) => {
+// 	res.render('catalogue/triple-entendre/buy', { country: 'none'});
+// });
 
-app.post('/triple-entendre/buy', (req, res) => {
-	res.render('catalogue/triple-entendre/buy', { country: req.body.action});
-});
+// app.post('/triple-entendre/buy', (req, res) => {
+// 	res.render('catalogue/triple-entendre/buy', { country: req.body.action});
+// });
 
 app.get('/moods', async (req, res) => {
 	let collection = await Sketch.find();
